@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------------------------------------------------------------
+   Global resets & base feel
+   --------------------------------------------------------------- */
+html {
+  scroll-behavior: smooth;
+  /* Bumped up from the 16px default so every rem-based Tailwind
+     text size (text-sm, text-base, text-lg, etc.) reads larger
+     and more comfortably across the whole site. */
+  font-size: 18px;
+}
+
+body {
+  @apply bg-dusk-900 text-blush-100 font-body antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: #e8a857;
+  color: #15101f;
+}
+
+/* Slim, warm scrollbar to match the "dusk to dawn" theme */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #15101f;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #5b2a52, #e8a857);
+  border-radius: 8px;
+}
+
+/* Respect reduced-motion preferences site-wide */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------------------------------------------------------------
+   Reusable component-level utility classes
+   --------------------------------------------------------------- */
+@layer components {
+  /* Glassmorphism surface used by the apology letter card */
+  .glass-card {
+    @apply relative rounded-[28px] border border-white/15 bg-white/10 backdrop-blur-xl;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  }
+
+  /* Gradient text used for emphasis words across headings */
+  .text-dawn-gradient {
+    background: linear-gradient(90deg, #e8896b, #e8a857, #f2c18c);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Soft glow ring, used behind the heart icons */
+  .glow-ring::before {
+    content: '';
+    position: absolute;
+    inset: -30%;
+    background: radial-gradient(circle, rgba(232, 168, 87, 0.45), transparent 70%);
+    filter: blur(20px);
+    z-index: -1;
+  }
+
+  /* Section eyebrow label (small caps tag above headings) */
+  .eyebrow {
+    @apply font-stamp text-sm uppercase tracking-[0.25em] text-ember-300/90;
+  }
+}
