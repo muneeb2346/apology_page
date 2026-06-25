@@ -6,7 +6,7 @@ import Lightbox from './Lightbox'
 // Replace these captions/paths with your own — drop real photos into
 // /public/images using these exact filenames and they'll appear here.
 const PHOTOS = [
-  { src: 'images/danish1.jpeg', caption: 'The day it all began', span: 'sm:row-span-2' },
+  { src: '/images/danish1.jpeg', caption: 'The day it all began', span: 'sm:row-span-2' },
   { src: '/images/danish2.png', caption: 'Laughing about nothing', span: 'sm:row-span-2' },
   { src: '/images/danish3.jpeg', caption: 'Side by side, as always', span: 'sm:row-span-2' },
   { src: '/images/danish.jpeg', caption: 'A memory worth keeping', span: 'sm:row-span-2' },
